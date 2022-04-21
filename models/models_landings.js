@@ -17,5 +17,5 @@ const itemSchema = {
 }
 
 const landingSchema = mongoose.Schema(itemSchema);
-const Landing = mongoose.model('Landing', landingSchema);
+const Landing = mongoose.model('landings', landingSchema);
 module.exports = Landing;
