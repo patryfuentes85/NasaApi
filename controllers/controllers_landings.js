@@ -1,5 +1,5 @@
 const Landing = require('../models/models_landings')
-
+const { db } = require('../utils/MongoDb')
 
 const getLandingsMass = async(req, res) => {
     let data;
@@ -36,11 +36,11 @@ const getLandingClass = async(req, res) => {
 const getLandingsQuery = async(req, res) => {
     let data;
     try {
-        if(req.query.from){
-            data = await Landing.find({'year': {$gte: req.query.from}}, 'name mass year -_id')
-            res.status(200).json(data);
-        } else if(req.query.from && req.query.to){
+        if(req.query.from && req.query.to){
             data = await Landing.find({'year': {$gte: req.query.from, $lte: req.query.to}}, 'name mass year -_id')
+            res.status(200).json(data);
+        } else if(req.query.from){
+            data = await Landing.find({'year': {$gte: req.query.from}}, 'name mass year -_id')
             res.status(200).json(data);
         } else if(req.query.to){
             data = await Landing.find({'year': {$lte: req.query.to}}, 'name mass year -_id')
@@ -52,33 +52,45 @@ const getLandingsQuery = async(req, res) => {
 };
 
 const createNewLanding = async (req, res) => {
+    console.log(req.body);
     try {
-        const newLanding = new Landing({
-            name: req.body.name,
-            id: req.body.id,
-            nametype: req.body.nametype,
-            recclass: req.body.recclass,
-            mass: req.body.mass,
-            fall: req.body.fall,
-            year: req.body.year,
-            reclat: req.body.reclat,
-            reclong: req.body.reclong,
-            geolocation: {
-                latitude: req.body.latitude,
-                longitude: req.body.longitude,
-            }
-        })
-        const land = await newLanding.save();
-        res.status(201).json({land})
+        const lan = req.body;
+        await Landing.create(lan);
+        res.status(201).json({"message":'landing creada'})
     } catch (err) {
         res.status(400).json({message:err});
     }
 }
 
+const editLanding = async (req, res) => {
+    try {
+      let query = { id: req.params.id };
+      let update = req.body;
+      const result = await Landing.findOneAndUpdate(query, update, {
+        new: true,
+        runValidators: true,
+      });
+      res.status(201).json({ message: "landing modificada" });
+    } catch (err) {
+      res.status(400).json({ message: err });
+    }
+  };
+
+  const deleteLanding = async (req, res) => {
+    try {
+      await Landing.deleteOne({ id: req.params.id })
+      res.status(200).send('Landing Borrado');
+    } catch (err) {
+      res.status(400).json({ message: err });
+    }
+  };
+
 module.exports = { getLandingsMass, 
                    getLandingClass,
                    getLandingsQuery,
-                   createNewLanding
+                   createNewLanding,
+                   editLanding,
+                   deleteLanding
                 };
 
 
