@@ -124,6 +124,6 @@ Ejemplo: /astronomy/neas/delete
 
 # Importación de datos en MongoDB
 
-[DATOS](https://github.com/TheBridge-FullStackDeveloper/temario_fullstack_FT_feb22/blob/master/teoria/back/ejercicioNasa.md#:~:text=datos%20en%20MongoDB-,Datos%20ejercicio,-OPCI%C3%93N%201%20(la).
+Este sitio se construyó usando [GitHub Pages](https://github.com/TheBridge-FullStackDeveloper/temario_fullstack_FT_feb22/blob/master/teoria/back/ejercicioNasa.md#:~:text=datos%20en%20MongoDB-,Datos%20ejercicio,-OPCI%C3%93N%201%20(la)).
 
 
