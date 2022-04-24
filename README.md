@@ -122,6 +122,8 @@ Ejemplo: /astronomy/neas/delete
 
 ![GATO](https://github.com/TheBridge-FullStackDeveloper/temario_fullstack_FT_feb22/raw/master/assets/back/ejercicioNasa/nasa.jpg)
 
+# Importación de datos en MongoDB
 
+[DATOS](https://github.com/TheBridge-FullStackDeveloper/temario_fullstack_FT_feb22/blob/master/teoria/back/ejercicioNasa.md#:~:text=datos%20en%20MongoDB-,Datos%20ejercicio,-OPCI%C3%93N%201%20(la).
 
 
