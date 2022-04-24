@@ -31,6 +31,8 @@ GET para obtener nombre, masa y fecha de todos los meteoritos caídos en determi
 /astronomy/landings?from=1960
 /astronomy/landings?to=1990
 El mismo endpoint deberá ser compatible con las 3 formas
+
+
 POST Para crear un nuevo landing en el sistema. El objeto a crear tendrá los mismos campos como los documentos proporcionandos en MongoDB como ejemplo:
 {
   "name": "Agen",
