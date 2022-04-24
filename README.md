@@ -126,4 +126,35 @@ Ejemplo: /astronomy/neas/delete
 
 Aquí Tienes los [Datos](https://github.com/TheBridge-FullStackDeveloper/temario_fullstack_FT_feb22/tree/master/utils/ejercicioNasa).
 
+## OPCIÓN 1 (la fácil):
+
+En MongoCompass, creamos una colección. En dicha colección aparece el botón add data. Al pulsar en el botón aparecerá la opción de Import File. Pulsada esta opción nos aparecerá un cuadro de texto que nos permite seleccionar el archivo JSON que queremos importar en nuestra colección.
+
+El ejercicio consta de dos colecciones que tenemos que importar.
+
+Los JSON de datos que queremos guardar te los adjuntamos en este ejercicio, en la carpeta utils.
+
+## OPCIÓN 2:
+
+El seeding nos permite importar grandes cantidades de datos a colecciones vacías. En este caso de adjuntamos la carpeta utils con dos JSON, uno referente a landings y otro referente a la colección neas. Para poder guardarlos dentro de nuestra base de datos de mongo, usaremos mongoimport.
+```
+mongoimport
+```
+
+Comprobar si tenemos instalado mongoimport
+
+```
+mongoimport --version
+```
+
+- Instalación de mongoimport (MongoDB Database Tools)
+- Uso
+- El comando neccesita que especifiquemos la base de datos, la colección, y la ruta al archivo (csv y json)
+```
+mongoimport --db=[base-de-datos] --collection=[colección] [ruta/al/archivo]
+```
+- Si usamos un json que se compone de un array de objetos deberemos pasar también un flag que lo especifique
+```
+mongoimport --jsonArray --db=[base-de-datos] --collection=[colección] [ruta/al/archivo]
+```
 
