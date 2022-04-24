@@ -5,7 +5,7 @@ img
 
 En este proyecto se aplican conceptos de Backend vistos hasta el momento. 
 
-# Requisitos del Trabajo
+## Requisitos del Trabajo
 Tener en cuenta las siguientes consideraciones, que serán imprescindibles para este proyecto:
 
 - Respetar los principios y técnicas de lo que hemos aprendido durante el curso sobre orden de carpetas, buenas prácticas, etc...
@@ -15,11 +15,11 @@ Tener en cuenta las siguientes consideraciones, que serán imprescindibles para 
 - Se prestará especial atención a un código limpio, legible, bien documentado, correctamente versionado y fácil de mantener, así como a la aplicación sobre   el mismo de los principios SOLID
 -Despliegue de la API en cloud. Heroku + MongoDB Atlas.
 
-# Respecto a la API
+## Respecto a la API
 - Todas las rutas de la API deben empezar con localhost:3000/api/
 - El ejercicio constará de 2 colecciones totales (landings y neas)
 
-## Colección Landings
+# Colección Landings
 Ruta base: http://localhost:3000/api/astronomy/landings/mass .. nos muestra todas las landings
 
 - GET para obtener nombre y masa de todos aquellos meteoritos cuya masa sea igual o superior a una masa (gr) dada (con query parameters)​
@@ -49,6 +49,78 @@ El mismo endpoint deberá ser compatible con las 3 formas
   "geolocation": { "latitude": "44.21667", "longitude": "0.61667" }
 }
 ```
+Ejemplo: /astronomy/landings/create
+- PUT Para editar un landing en el sistema. Búsqueda para editar por ID. El objeto a editar tendrá los mismos campos como los documentos proporcionandos en MongoDB como ejemplo.
+
+```
+ {
+  "name": "Alexandrovsky",
+  "id": "465",
+  "nametype": "Valid",
+  "recclass": "H4",
+  "mass": "9251",
+  "fall": "Fell",
+  "year": "1900-01-01T00:00:00.000",
+  "reclat": "50.950000",
+  "reclong": "31.816670",
+  "geolocation": { "latitude": "50.95", "longitude": "31.81667" }
+},
+```
+Ejemplo: /astronomy/landings/edit
+- DELETE Para borrar un landing en el sistema. Búsqueda para borrar por ID.
+Ejemplo: /astronomy/landings/delete
+
+# Colección NEAS
+
+Ruta base: http://localhost:3000/api/astronomy/neas​
+
+- GET para obtener la designación y el período anual en base a la clase orbital del asteroide (con query params)​
+Ejemplo: /astronomy/neas?class=aten​
+- GET para obtener designación, fecha y período anual de todos los asteroides que cumplan el filtro de fechas dadas​
+/astronomy/neas?from=2010&to=2015
+/astronomy/neas?from=2010
+/astronomy/neas?to=2015
+- En este caso, además, podremos poner la fecha más específica si quisiéramos:
+.. YYYY-MM-DD
+.. YYYY-MM
+.. YYYY
+El endpoint debe ser compatible con los 3 casos
+- POST Para crear un nuevo NEA en el sistema. El objeto a crear tendrá los mismos campos como los documentos proporcionandos en MongoDB como ejemplo:
+```  {
+  "designation": "(2014 CY4)",
+  "discovery_date": "2014-02-04T00:00:00.000",
+  "h_mag": "21.1",
+  "moid_au": "0.042",
+  "q_au_1": "0.48",
+  "q_au_2": "4.82",
+  "period_yr": "4.32",
+  "i_deg": "15.02",
+  "pha": "Y",
+  "orbit_class": "Apollo"
+}
+```
+Ejemplo: /astronomy/neas/create
+- PUT Para editar un NEA en el sistema. Búsqueda para editar por designation. El objeto a editar tendrá los mismos campos como los documentos proporcionandos en MongoDB como ejemplo.
+
+```
+{
+  "designation": "(2010 YD3)",
+  "discovery_date": "2010-12-26T00:00:00.000",
+  "h_mag": "20",
+  "moid_au": "0.195",
+  "q_au_1": "1.11",
+  "q_au_2": "4.05",
+  "period_yr": "4.14",
+  "i_deg": "24.61",
+  "pha": "N",
+  "orbit_class": "Amor"
+}
+```
+Ejemplo: /astronomy/neas/edit
+- DELETE Para borrar un NEA del sistema. Búsqueda para borrar por designation.
+Ejemplo: /astronomy/neas/delete
+
+![GATO](https://github.com/TheBridge-FullStackDeveloper/temario_fullstack_FT_feb22/raw/master/assets/back/ejercicioNasa/nasa.jpg)
 
 
 
