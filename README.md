@@ -23,18 +23,29 @@ Tener en cuenta las siguientes consideraciones, que serán imprescindibles para 
 Ruta base: http://localhost:3000/api/astronomy/landings/mass .. nos muestra todas las landings
 
 - GET para obtener nombre y masa de todos aquellos meteoritos cuya masa sea igual o superior a una masa (gr) dada (con query parameters)​
-* Ejemplo: /astronomy/landings?minimum_mass=200000​
+Ejemplo: /astronomy/landings?minimum_mass=200000
 - GET para obtener nombre y masa de uno o más meteoritos cuya masa sea la especificada (route params)
-* Ejemplo: /astronomy/landings/mass/200000​
+Ejemplo: /astronomy/landings/mass/200000
 - GET para obtener los nombres y clase de aquellos meteoritos cuya clase sea la registrada (route params)
-Ejemplo: /astronomy/landings/class/L6​
+Ejemplo: /astronomy/landings/class/L6
 - GET para obtener nombre, masa y fecha de todos los meteoritos caídos en determinadas fechas de la siguiente manera:
-* /astronomy/landings?from=1960&to=1990
-* /astronomy/landings?from=1960
-* /astronomy/landings?to=1990
+/astronomy/landings?from=1960&to=1990
+/astronomy/landings?from=1960
+/astronomy/landings?to=1990
 El mismo endpoint deberá ser compatible con las 3 formas
 - POST Para crear un nuevo landing en el sistema. El objeto a crear tendrá los mismos campos como los documentos proporcionandos en MongoDB como ejemplo:
-
+{
+  "name": "Agen",
+  "id": "392",
+  "nametype": "Valid",
+  "recclass": "H5",
+  "mass": "30000",
+  "fall": "Fell",
+  "year": "1814-01-01T00:00:00.000",
+  "reclat": "44.216670",
+  "reclong": "0.616670",
+  "geolocation": { "latitude": "44.21667", "longitude": "0.61667" }
+}
 
 
 
