@@ -34,6 +34,8 @@ Ejemplo: /astronomy/landings/class/L6
 /astronomy/landings?to=1990
 El mismo endpoint deberá ser compatible con las 3 formas
 - POST Para crear un nuevo landing en el sistema. El objeto a crear tendrá los mismos campos como los documentos proporcionandos en MongoDB como ejemplo:
+
+```
 {
   "name": "Agen",
   "id": "392",
@@ -46,6 +48,7 @@ El mismo endpoint deberá ser compatible con las 3 formas
   "reclong": "0.616670",
   "geolocation": { "latitude": "44.21667", "longitude": "0.61667" }
 }
+```
 
 
 
