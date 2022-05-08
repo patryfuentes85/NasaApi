@@ -45,6 +45,9 @@ const getLandingsQuery = async(req, res) => {
         } else if(req.query.to){
             data = await Landing.find({'year': {$lte: req.query.to}}, 'name mass year -_id')
             res.status(200).json(data);
+        } else {
+        data = await Landing.find({}, '-_id')
+            res.status(200).json(data)
         }
     } catch (error) {
         res.status(400).json({'error': error})
