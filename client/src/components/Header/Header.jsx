@@ -1,8 +1,13 @@
-import React from 'react'
+import React from "react";
+import Nav from './Nav';
+import logo from '../../assets/nasalo.png'
 
 function Header() {
   return (
-    <div>Header</div>
+    <header className='header'>
+      <img src={logo} alt='logo'></img>
+      <Nav/>
+      </header>
   )
 }
 

@@ -1,0 +1,14 @@
+@import '../utils/variables.scss';
+
+.header{
+    background-color: $menu-color;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    & > img {
+        width: 6rem;
+        margin-bottom: 0.8rem;
+        margin-top: 0.8rem;
+        }
+} 

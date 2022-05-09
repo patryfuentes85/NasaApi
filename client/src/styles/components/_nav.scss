@@ -1,0 +1,16 @@
+@import '../utils/variables.scss';
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    &__element {
+        text-decoration:none;
+        color: black;
+        margin: 0 0.5rem;
+        font-family: monospace;
+        font-size: 0.9rem;
+    }
+}

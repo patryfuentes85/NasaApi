@@ -2,7 +2,7 @@ import Main from './components/Main';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { BrowserRouter } from 'react-router-dom';
-import './App.css';
+import './styles/styles.scss';
 
 function App() {
   return (
@@ -10,8 +10,8 @@ function App() {
       <BrowserRouter> 
         <Header/>
         <Main/>
-        <Footer/>
       </BrowserRouter>  
+      <Footer/>
     </div>
   );
 }
