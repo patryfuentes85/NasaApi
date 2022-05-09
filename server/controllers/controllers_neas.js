@@ -29,7 +29,10 @@ const getNeas = async (req, res) => {
           "designation discovery_date -_id"
         );
         res.status(200).json(data);
-      }
+      } else {
+        data = await Nea.find({}, '-_id')
+            res.status(200).json(data)
+        }
     } catch (error) {
       res.status(400).json({ error: error });
     }
@@ -40,7 +43,7 @@ const createNewNea = async (req, res) => {
     try {
         const newNea = req.body
         await Nea.create(newNea);
-        res.status(201).json({"message":'landing creada'})
+        res.status(201).json({"message":'nea creada'})
     } catch (err) {
         res.status(400).json({message:err});
     }
@@ -63,7 +66,7 @@ const editNea = async (req, res) => {
   const deleteNea = async (req, res) => {
     try {
       await Nea.deleteOne({ designation: req.params.designation })
-      res.status(200).send('Nea Borrado');
+      res.status(200).send('Nea Borrada');
     } catch (err) {
       res.status(400).json({ message: err });
     }
