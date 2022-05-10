@@ -16,12 +16,12 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 
 //// esta linea une el React App con Server 
-app.use(express.static(path.join(__dirname, 'client/build')));
+/* app.use(express.static(path.join(__dirname, 'client/build'))); */
 
 // cualquier petición que se haga va a ir a la carpeta client/build/index.html (( que es el punto de entrada de REACT))
-app.get('/', (req,res) =>{
+/* app.get('/', (req,res) =>{
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
+}); */
 
 
 app.get('/api/astronomy/landings/mass/:mass?', landings.getLandingsMass)
