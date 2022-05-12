@@ -6,6 +6,7 @@ import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
 import LocationIcon from "../LocationIcon/LocationIcon";
 
+
 function Landings() {
   
  /// creo los estados -- y las funciones que modificarán dichos estados
@@ -14,7 +15,7 @@ function Landings() {
    const [landings, setLandings] = useState([]);
    const [quant, setQuantity] = useState('');
 
-   console.log(landings);
+
    useEffect(() => {
     async function fetchLanding(){
       // if(selected){
@@ -27,7 +28,7 @@ function Landings() {
           } else {
             setLandings(json)
          }
-          console.log('esto me trae landings', landings);
+       
         } catch (error) {
           console.log('error', error)
         // }
@@ -52,7 +53,14 @@ function Landings() {
 const paintMarkers = () => {
     return landings.map((landing, i) =><Markers landing={landing} key={i}/>)
   }
+
+  const exp = {
+    landings,
+    setLandings
+  
+  }
     return <>
+   
   <form onSubmit={handleSubmit}>
     <div className="landignsReq">
       <label htmlFor="selection">Search by: </label>
@@ -67,6 +75,7 @@ const paintMarkers = () => {
 
     <input type="submit" value='Search'/>
   </form>
+  
   <div id="map">
     <MapContainer center={[30, 0]} zoom={3} scrollWheelZoom={false} className="mapCont">
       <TileLayer attribution='&copy; 
@@ -75,12 +84,23 @@ const paintMarkers = () => {
       />
       {landings.map(landing=>landing.reclat?<Marker position={[landing.reclat, landing.reclong]} icon={LocationIcon}>
           <Popup>
-            Name: {landing.name} <br /> Landing year: {landing.year}
+            <ul> 
+            <li> Name: {landing.name}</li>
+            <li>Id: {landing.id}</li>
+            <li>Year: {landing.year}</li>
+            <li>Class: {landing.recclass}</li>
+            <li>Mass: {landing.mass}</li>
+            <li>Fall: {landing.fall}</li>
+            <li>Latitude: {landing.reclat}</li>
+            <li>Longitude: {landing.reclong}</li>
+            </ul>
           </Popup>
         </Marker>:null)}
     </MapContainer>
   </div>
   </>;
+
+
 
 }
 

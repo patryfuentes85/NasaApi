@@ -6,9 +6,11 @@ function Nav() {
     <div className='nav'>
       <Link className='nav__element' to='/'>Home</Link>
       <br/>
-      <Link className='nav__element' to='/landings'>Landings</Link>
+      <Link className='nav__element' to='/landings'>Landings Map</Link>
       <br/>
       <Link className='nav__element' to='/neas'>Neas</Link>
+      <br/>
+      <Link className='nav__element' to='/list'>List Landings</Link>
       <br/>
 
     </div>
