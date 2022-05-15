@@ -17,7 +17,7 @@ function Home() {
             'title': res.data.title
           }
           setInfo(infoHome)
-          console.log('esto es res', res.data.url)
+       
         } catch (error) {
           console.log('error', error)
       }
