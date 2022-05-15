@@ -44,7 +44,7 @@ const Form = () => {
   return (
     <>
     
-    <section>
+    <section className='create_class'>
       <h1>Create a New Landing!!</h1>
       <form onSubmit={handleSubmit(createLanding)}>
         <input {...register("name")} type="text" name="name" placeholder="name"/>

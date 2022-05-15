@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 
@@ -16,6 +16,16 @@ function Card(props) {
     }
    }
 
+   /* const editCard = async () => {
+    try {
+     const res = await axios.put(`http://localhost:3000/api/astronomy/landings/delete/${landing.id}`)
+     const data = res.data;
+
+    } catch (error) {
+      console.log(error);
+    }
+   } */
+
 
 
   return (
@@ -30,10 +40,9 @@ function Card(props) {
                 <p> Mass: {props.value.mass}</p>
                 <p> Id: {props.value.id}</p>
 <div className='buttons'>
-<Button type='delete' onClick={deleteCard} variant='outlined'>Delete</Button>
-<Button type='update' variant='outlined'>Update</Button>
+<Button type='delete' onClick={deleteCard} variant='contained'>Delete</Button>
+{/* <Button type='edit' onClick={editCard} variant='contained'>Edit</Button> */}
 </div>
-
 
 
             </div>
