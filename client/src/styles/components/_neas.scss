@@ -1,4 +1,12 @@
-.card_class {
+.neas_cards {
+        display: flex;
+        align-content: stretch;
+        justify-content: space-around;
+        flex-wrap: wrap;
+   
+}
+
+.card_nea {
     background-color: rgb(147, 166, 184);
     color: rgb(4, 4, 4);
     width: 30%;

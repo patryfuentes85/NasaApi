@@ -85,7 +85,7 @@ const paintMarkers = () => {
       {landings.map(landing=>landing.reclat?<Marker position={[landing.reclat, landing.reclong]} icon={LocationIcon}>
           <Popup>
             <ul> 
-            <li> Name: {landing.name}</li>
+            <li>Name: {landing.name}</li>
             <li>Id: {landing.id}</li>
             <li>Year: {landing.year}</li>
             <li>Class: {landing.recclass}</li>
