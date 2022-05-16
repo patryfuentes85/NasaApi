@@ -1,19 +1,27 @@
 import {useForm} from 'react-hook-form';
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import axios from "axios";
 import {landingsContext} from "../../../context/landingsContext";
-import Card from "../Form/Card"
+import Card from "../Form/Card";
+import usePagination from '../../../hooks/pagination';
+import Pagination from '@mui/material/Pagination';
 
-/* import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button'; */
+
 
 
 const Form = () => {
 
   const all = useContext(landingsContext);
   console.log('esto es lo que me llega por context con all',all)
+
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 12;
+  const count = Math.ceil(all.length / PER_PAGE);
+  const _DATA = usePagination(all, PER_PAGE);
+  const handleChange = (e, p) => {
+    setPage(p);
+    _DATA.jump(p);
+  };
 
   const { register, handleSubmit } = useForm();
 
@@ -41,6 +49,9 @@ const Form = () => {
   
   }
 
+ 
+  
+
   return (
     <>
     
@@ -61,10 +72,17 @@ const Form = () => {
     
                               {<div 
                                  className='cardland'>
-                                  {all.map((p, i) => (
+                                  {_DATA.currentData().map((p, i) => (
                                     <Card key={i} value={p}/>
                                   ))}
                               </div>}
+                              <div className='page_class'><Pagination
+                                  count={count}
+                                  size="large"
+                                  page={page}
+                                  variant="outlined"
+                                  onChange={handleChange}
+                                /></div>
               
               </section>
     </>

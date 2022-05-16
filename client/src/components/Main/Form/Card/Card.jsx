@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 function Card(props) {
  const landing = props.value
@@ -29,15 +30,11 @@ function Card(props) {
 
 
   return (
-   
+    
     <div className="card_class">
-                <h2>Name: {props.value.name}</h2>
-                <p>Fall: {props.value.fall}</p>
+      <Link to={`/list/landings/details/${props.value.id}`}>
+                <h2>Name: {props.value.name}</h2></Link>
                 <p>Year: {props.value.year}</p>
-                <p> Latitude: {props.value.reclat}</p>
-                <p> Longitude: {props.value.reclong}</p>
-                <p> Class: {props.value.recclass}</p>
-                <p> Mass: {props.value.mass}</p>
                 <p> Id: {props.value.id}</p>
 <div className='buttons'>
 <Button type='delete' onClick={deleteCard} variant='contained'>Delete</Button>
@@ -46,6 +43,7 @@ function Card(props) {
 
 
             </div>
+            
   )
 }
 
